@@ -7,7 +7,7 @@ trigger TaskTrigger on Lead (after insert) {
         System.debug(selectedOptions);
         for (String option : selectedOptions) {
             system.debug('Opt '+ option);
-			      system.debug('select opt' + selectedOptions);
+		    system.debug('select opt' + selectedOptions);
             
             if(option == 'SMS' || option == 'Whatsapp') {
                 Task task     = new Task();
