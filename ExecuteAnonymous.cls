@@ -2,25 +2,14 @@
     new Account (Name = 'Gabriel'),
     new Account (Name = 'Eduardo'),
     new Account (Name = 'Gabriela')
-  };
-        
+  };      
+
 	insert contas;
 
   List<Contact> contatos = new List<Contact> {
-    new Contact(
-		  FirstName = 'Joao',
-      LastName  = 'Mateus',
-      AccountId = contas[0].id),
-    new Contact(
-      FirstName = 'Maria',
-			LastName  = 'Eduarda',
-			AccountId = contas[1].id
-        ),
-		new Contact(
-      FirstName = 'Felipe',
-			LastName  =	'Araujo',
-			AccountId = contas[2].id
-        )
+    new Contact( FirstName = 'Joao', LastName  = 'Mateus', AccountId = contas[0].id ),
+    new Contact( FirstName = 'Maria', LastName  = 'Eduarda',AccountId = contas[1].id ),
+		new Contact( FirstName = 'Felipe', LastName  =	'Araujo', AccountId = contas[2].id )
   };
     
   insert contatos;
@@ -40,6 +29,7 @@
 	System.debug('Master ' + masterAcct + 'Merg '+ mergeAcctIds);
 
 	try {
+    
     merge masterAcct mergeAcctIds;
     Account[] result = [SELECT Id, Name FROM Account WHERE Id IN : mergeAcctIds];
 		System.debug(result);
